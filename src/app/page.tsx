@@ -51,11 +51,13 @@ export default async function Component() {
         <Swipper />
 
         <section>
-          <div className="text-center py-12">
+          <div className="text-center pt-12">
             <p className="font-bold text-3xl">BESTS HIGHLIGHTS</p>
 
             <p className="text-[#999999]">Explore our highlights</p>
           </div>
+
+          <div className="w-full bg-[#ECECEC]  mb-12 mt-4">teste</div>
 
           {segments.map(async (item, index) => {
             const itensByCategory = await getFindByCategory(item);

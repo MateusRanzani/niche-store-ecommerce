@@ -4,6 +4,7 @@ const nextConfig = {
         domains: [
           'images.ctfassets.net',
           'fakestoreapi.com',
+          'drive.google.com'
         
         ],
       },
