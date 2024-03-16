@@ -27,17 +27,30 @@ async function getDataSegments() {
   return res.json();
 }
 
+async function getFindByCategory(category: string) {
+  const res = await fetch(
+    `https://fakestoreapi.com/products/category/${category}`
+  );
 
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
 
 export default async function Component() {
   const data = await getData();
   const segments = await getDataSegments();
 
   useEffect(() => {
-    const getFindByCategory = (item : string) => {
-      return [];
-    };
-  }, []);
+
+    const getFindByCategory  = () => {
+      return []
+    }
+  }, [])
+
+
 
   return (
     <main className="grid gap-12">
