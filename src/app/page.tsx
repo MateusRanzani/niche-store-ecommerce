@@ -6,6 +6,8 @@ import Image from "next/image";
 import Card from "@/components/card/Card";
 import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
 import { useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
+// import useSWR from 'swr'
 
 async function getData() {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -39,18 +41,22 @@ async function getFindByCategory(category: string) {
   return res.json();
 }
 
+// const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 export default async function Component() {
-  const data = await getData();
+  const datat = await getData();
   const segments = await getDataSegments();
 
-  useEffect(() => {
+  // const URL = "https://fakestoreapi.com/products/category/jewelery"
+  // const {data, error, isLoading} = useSWR(URL, fetcher)
 
-    const getFindByCategory  = () => {
-      return []
-    }
-  }, [])
+  // console.log(data, 'data');
 
+  const countItemsBySegments = (segment: string) => {
+    const array = datat.filter((item) => item.category === segment);
 
+    return array.length;
+  };
 
   return (
     <main className="grid gap-12">
@@ -63,10 +69,15 @@ export default async function Component() {
             <p className="text-[#999999]">Explore our highlights</p>
           </div>
 
-          <div className="w-full bg-[#ECECEC]  mb-12 mt-4 p-4">
+          <div className="w-full bg-[#ECECEC]  mb-12 mt-4 p-4 flex justify-center">
+            <div className="w-5/12 flex justify-between">
             {segments.map((segment, index) => (
-              <Button variant="ghost">{capitalizeFirstLetter(segment)}</Button>
+              <Button variant="ghost" key={index}>
+                {capitalizeFirstLetter(segment)}
+                <Badge className="ml-2">{countItemsBySegments(segment)}</Badge>
+              </Button>
             ))}
+            </div>
           </div>
 
           {segments.map(async (segment, index) => {

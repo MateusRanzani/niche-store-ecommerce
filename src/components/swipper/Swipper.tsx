@@ -45,7 +45,7 @@ export const Swipper = () => {
       className="mySwiper"
     >
       {banners.map((item, index) => (
-        <SwiperSlide>
+        <SwiperSlide key={index}>
           <Image src={item.src} alt={item.alt} width={1700} height={600} />
         </SwiperSlide>
       ))}
