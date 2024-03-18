@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Image from "next/image";
-import useWindowSize from "@/utils/windows-size";
 
 const banners = [
   {
@@ -45,8 +44,6 @@ const banners = [
 ];
 
 export const Swipper = () => {
-  const { width }: any = useWindowSize();
-
   return (
     <Swiper
       pagination={true}
@@ -60,16 +57,27 @@ export const Swipper = () => {
     >
       {banners.map((item, index) => (
         <SwiperSlide key={index}>
-          {width >= 768 ? (
-            <Image src={item.src} alt={item.alt} width={1700} height={600} />
-          ) : (
-            <Image
-              src={item.srcMobile}
-              alt={item.alt}
-              width={650}
-              height={750}
-            />
-          )}
+          <SwiperSlide key={index}>
+            <div className="flex justify-center">
+              <Image
+                className="flex md:hidden"
+                src={item.srcMobile}
+                alt={item.alt}
+                width={650}
+                height={750}
+                priority
+              />
+
+              <Image
+                className="w-full hidden md:flex"
+                src={item.src}
+                alt={item.alt}
+                width={1700}
+                height={600}
+                priority
+              />
+            </div>
+          </SwiperSlide>
         </SwiperSlide>
       ))}
     </Swiper>
