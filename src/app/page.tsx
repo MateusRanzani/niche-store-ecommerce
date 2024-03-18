@@ -11,7 +11,7 @@ export default async function Component() {
       <div className="container px-4 md:px-6">
         <Swipper />
 
-        <Highlights data={data} categories={categories}/>
+        <Highlights data={data} categories={categories} />
       </div>
     </main>
   );

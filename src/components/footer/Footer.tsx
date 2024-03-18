@@ -11,7 +11,7 @@ export const Footer = () => {
             <span className="font-semibold">Home</span>
           </Link>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            © 2023 Acme Ecommerce. All rights reserved.
+            © 2023 Niche Store Ecommerce. All rights reserved.
           </p>
         </div>
         <div className="grid gap-4">

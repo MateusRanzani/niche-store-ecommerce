@@ -6,7 +6,7 @@ import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
 import { useState } from "react";
 
 export const Highlights = ({ data, categories }) => {
-  let [segmentsAux, setSegmentsAux] = useState(categories);
+  let [categoriesAux, setCategoriesAux] = useState(categories);
 
   const countItemsBySegments = (segment: string) => {
     const array = data.filter((item) => item.category === segment);
@@ -15,9 +15,9 @@ export const Highlights = ({ data, categories }) => {
   };
 
   const filterBySegment = (categories: string) => {
-    const removeSelected = segmentsAux.filter((item) => item !== categories);
-    segmentsAux = [categories, ...removeSelected];
-    setSegmentsAux(segmentsAux);
+    const removeSelected = categoriesAux.filter((item) => item !== categories);
+    categoriesAux = [categories, ...removeSelected];
+    setCategoriesAux(categoriesAux);
   };
 
   return (
@@ -43,22 +43,25 @@ export const Highlights = ({ data, categories }) => {
         </div>
       </div>
 
-      {segmentsAux.map((segment, index) => {
+      {categoriesAux.map((category, index) => {
         return (
           <div key={index}>
             <p className="font-bold text-2xl mb-12">
-              {capitalizeFirstLetter(segment)}
+              {capitalizeFirstLetter(category)}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-y-24 gap-x-4">
               {data.map((item, secondIndex) => {
-                if (item.category === segment) {
+                if (item.category === category) {
                   return <Card {...item} key={secondIndex} />;
                 }
               })}
             </div>
 
             <div className="flex justify-center my-12">
-              <Button className="w-6/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white" variant="secondary">
+              <Button
+                className="w-6/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white"
+                variant="secondary"
+              >
                 View More
               </Button>
             </div>
