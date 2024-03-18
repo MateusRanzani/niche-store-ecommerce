@@ -34,7 +34,7 @@ const Card = (item: ItemInterface) => {
         </p>
       </div>
       <div className="w-full flex justify-center my-4">
-        <Button className="w-11/12" variant="outline">
+        <Button className="w-11/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white" variant="outline">
           Buy Now
         </Button>
       </div>
