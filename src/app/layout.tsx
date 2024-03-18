@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title: "Niche Store",
   description:
     "Niche Store - O destino para produtos exclusivos. Descubra uma seleção única de itens cuidadosamente selecionados para satisfazer os gostos mais exigentes.",
-  // manifest: "/site.webmanifest",
   icons: {
     icon: {
       url: "/favicon.ico",
@@ -31,7 +30,7 @@ export default async function RootLayout({
     <html lang="en">
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={inter.className}>
-        <Menu categories={categories}/>
+        <Menu categories={categories} />
         {children}
         <Footer />
       </body>

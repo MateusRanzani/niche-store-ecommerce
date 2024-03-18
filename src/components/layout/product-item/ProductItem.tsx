@@ -9,11 +9,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactStars from "react-stars";
 
 export const ProductItem = (product: ProductInterface) => {
   let [quantitySelected, setQuantitySelected] = useState(1);
+  let [lineClampView, setLineClampView] = useState(false);
+  let [lineClampClass, setLineClampClass] = useState("line-clamp-4");
 
   const countQItems = () => {
     const items: any[] = [];
@@ -33,10 +35,33 @@ export const ProductItem = (product: ProductInterface) => {
     return items;
   };
 
+  const handleClampLine = () => {
+    if (lineClampClass === "line-clamp-4") {
+      setLineClampClass("line-clamp-none");
+    } else {
+      setLineClampClass("line-clamp-4");
+    }
+  };
+
+  useEffect(() => {
+    function isStringExceedLineClamp(elementId) {
+      const container = document.getElementById(elementId);
+      return container!.scrollHeight > container!.clientHeight;
+    }
+
+    const isExceeded = isStringExceedLineClamp("container");
+
+    if (isExceeded) {
+      setLineClampView(true);
+    } else {
+      setLineClampView(false);
+    }
+  }, []);
+
   return (
     <section>
-      <div className="grid md:grid-cols-2 py-12">
-        <div className="relative w-11/12 h-[35rem]">
+      <div className="grid md:grid-cols-2 md:py-12">
+        <div className="relative w-12/12 md:w-11/12 h-96 md:h-[35rem] my-4 md:my-0 ">
           <Image
             src={product.image}
             alt={product.description}
@@ -45,9 +70,22 @@ export const ProductItem = (product: ProductInterface) => {
           />
         </div>
         <div>
-          <h1 className="font-bold text-4xl">{product.title}</h1>
+          <h1 className="font-bold text-3xl md:text-4xl">{product.title}</h1>
 
-          <p className="py-4"> {product.description}</p>
+          <p id="container" className={`my-4 text-justify ${lineClampClass}`}>
+            {product.description}
+          </p>
+
+          {lineClampView && (
+            <p
+              className="font-bold"
+              onClick={() => {
+                handleClampLine();
+              }}
+            >
+              {lineClampClass === "line-clamp-4" ? "Read more" : "Read less"}
+            </p>
+          )}
 
           <div className="flex items-center">
             Rating: {product.rating.rate}
@@ -62,7 +100,7 @@ export const ProductItem = (product: ProductInterface) => {
             />
           </div>
 
-          <div className="my-4">
+          <div className="mt-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="secondary" className="font-bold  text-base ">
@@ -75,14 +113,14 @@ export const ProductItem = (product: ProductInterface) => {
             </DropdownMenu>
           </div>
 
-          <h1 className="font-bold text-5xl py-8">
+          <h1 className="font-bold text-5xl py-12">
             {product.price.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
             })}
           </h1>
 
-          <Button className="font-bold  text-base w-fit bg-blue-500 hover:bg-blue-600 text-white hover:text-white w-6/12 py-6 text-2xl mt-8">
+          <Button className="font-bold  text-base w-fit bg-blue-500 hover:bg-blue-600 text-white hover:text-white w-6/12 py-6 text-2xl">
             Buy Now
           </Button>
         </div>
