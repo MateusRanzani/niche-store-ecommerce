@@ -58,10 +58,7 @@ export const Highlights = ({ data, categories }) => {
             </div>
 
             <div className="flex justify-center my-12">
-              <Button
-                className="w-6/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white"
-                variant="secondary"
-              >
+              <Button className="w-6/12" variant="secondary">
                 View More
               </Button>
             </div>
