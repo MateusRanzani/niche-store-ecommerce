@@ -1,5 +1,4 @@
 "use client";
-
 import { ProductInterface } from "@/interfaces/ProductInterface";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { useState } from "react";
+import ReactStars from "react-stars";
 
 export const ProductItem = (product: ProductInterface) => {
   let [quantitySelected, setQuantitySelected] = useState(1);
@@ -36,7 +36,7 @@ export const ProductItem = (product: ProductInterface) => {
   return (
     <section>
       <div className="grid md:grid-cols-2 py-12">
-        <div className="relative w-full h-[35rem]">
+        <div className="relative w-11/12 h-[35rem]">
           <Image
             src={product.image}
             alt={product.description}
@@ -49,7 +49,18 @@ export const ProductItem = (product: ProductInterface) => {
 
           <p className="py-4"> {product.description}</p>
 
-          <div>Rating: {product.rating.rate}</div>
+          <div className="flex items-center">
+            Rating: {product.rating.rate}
+            <ReactStars
+              count={5}
+              value={product.rating.rate}
+              size={24}
+              edit={false}
+              color1={"#ECECEC"}
+              color2={"black"}
+              className="px-4"
+            />
+          </div>
 
           <div className="my-4">
             <DropdownMenu>
