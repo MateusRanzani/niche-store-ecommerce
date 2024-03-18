@@ -34,8 +34,11 @@ const Card = (item: ItemInterface) => {
           })}
         </p>
       </div>
-      <div className="w-full flex justify-center my-4">
-        <Link className="w-full font-semibold" href={`/product/${item.id}`}>
+      <div className="w-full  my-4">
+        <Link
+          className="w-full flex justify-center font-semibold"
+          href={`/product/${item.id}`}
+        >
           <Button
             className="w-11/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white"
             variant="outline"

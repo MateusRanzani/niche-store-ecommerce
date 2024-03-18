@@ -23,7 +23,7 @@ export const Highlights = ({ data, categories }) => {
   return (
     <section>
       <div className="text-center pt-12">
-        <p className="font-bold text-3xl">BESTS HIGHLIGHTS</p>
+        <p className="font-bold text-4xl mb-2">BESTS HIGHLIGHTS</p>
 
         <p className="text-[#999999]">Explore our highlights</p>
       </div>
