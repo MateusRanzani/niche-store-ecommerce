@@ -40,3 +40,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 This is a project for an e-commerce website featuring a banner carousel, product lists utilizing data from the Fake Store API, a header, and a footer. It is built using Tailwind CSS and Next.js.
 
 The layout was initially developed in Figma.
+
+## Home
+
+![homepage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/03599262-80b8-4902-a174-a8a1d6a87a8d)
+
+## Product Page
+
+![productpage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/7c3ec1bc-18f4-4e69-8316-26413279ba0f)
