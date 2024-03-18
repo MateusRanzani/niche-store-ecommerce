@@ -2,7 +2,7 @@
 import Card from "@/components/card/Card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { capitalizeFirstLetter } from "@/utils/capitalizeFirstLetter";
+import { capitalizeFirstLetter } from "@/utils/capitalize-first-letter";
 import { useState } from "react";
 
 export const Highlights = ({ data, categories }) => {
