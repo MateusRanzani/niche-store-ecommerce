@@ -20,7 +20,7 @@ export default async function Page({ params }) {
       <div className="container px-4 md:px-6">
         <ProductItem {...product} />
 
-        <Recommendeds items={categoryItems} itemId={product.id}/>
+        <Recommendeds items={categoryItems} itemId={product.id} />
 
         <Highlights data={data} categories={categories} />
       </div>

@@ -28,11 +28,11 @@ export const Footer = () => {
             </Link>
           </div>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400 cursor-pointer  flex justify-center lg:justify-normal">
+          <p className="text-sm text-gray-500 dark:text-gray-400 flex justify-center lg:justify-normal w-fit cursor-pointer">
             customer@nichestore.com.br
           </p>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400  flex justify-center lg:justify-normal">
+          <p className="text-sm text-gray-500 dark:text-gray-400 flex justify-center lg:justify-normal">
             © 2023 Niche Store Ecommerce. All rights reserved.
           </p>
         </div>
