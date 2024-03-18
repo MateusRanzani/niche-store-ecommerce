@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Niche Store",
   description:
     "Niche Store - O destino para produtos exclusivos. Descubra uma seleção única de itens cuidadosamente selecionados para satisfazer os gostos mais exigentes.",
-  manifest: "/site.webmanifest",
+  // manifest: "/site.webmanifest",
   icons: {
     icon: {
       url: "/favicon.ico",

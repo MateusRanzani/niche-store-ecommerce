@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface ItemInterface {
   id: number;
@@ -34,9 +35,14 @@ const Card = (item: ItemInterface) => {
         </p>
       </div>
       <div className="w-full flex justify-center my-4">
-        <Button className="w-11/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white" variant="outline">
-          Buy Now
-        </Button>
+        <Link className="w-full font-semibold" href={`/product/${item.id}`}>
+          <Button
+            className="w-11/12 bg-blue-500 hover:bg-blue-600 text-white hover:text-white"
+            variant="outline"
+          >
+            Buy Now
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -29,3 +29,13 @@ export async function getFindByCategory(category: string) {
 
   return res.json();
 }
+
+export async function getSingleProduct(id: string) {
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch product");
+  }
+
+  return res.json();
+}
