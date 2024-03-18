@@ -43,8 +43,8 @@ The layout was initially developed in Figma.
 
 ## Home
 
-![homepage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/03599262-80b8-4902-a174-a8a1d6a87a8d)
+![homepage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/ed8b7de2-20c9-427d-b54b-8dc2fce55a9e)
 
 ## Product Page
 
-![productpage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/7c3ec1bc-18f4-4e69-8316-26413279ba0f)
+![productpage](https://github.com/MateusRanzani/niche-store-ecommerce/assets/92117219/609c457c-f706-476b-a127-33f7d55cded1)
