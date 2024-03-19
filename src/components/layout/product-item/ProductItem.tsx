@@ -117,7 +117,7 @@ export const ProductItem = (product: ProductInterface) => {
             </DropdownMenu>
           </div>
 
-          <h1 className="font-bold text-5xl py-12">
+          <h1 className="font-bold text-4xl md:text-5xl py-8">
             {product.price.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
