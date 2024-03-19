@@ -28,7 +28,7 @@ export const Footer = () => {
             </Link>
           </div>
 
-          <p className="text-sm text-gray-500 dark:text-gray-400 flex justify-center lg:justify-normal w-fit cursor-pointer">
+          <p className="text-sm text-gray-500 dark:text-gray-400 flex justify-center lg:justify-normal md:w-fit cursor-pointer">
             customer@nichestore.com.br
           </p>
 
