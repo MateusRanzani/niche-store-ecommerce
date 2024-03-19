@@ -31,7 +31,7 @@ export const Highlights = ({ data, categories }) => {
         <p className="text-[#999999]">Explore our highlights</p>
       </div>
 
-      <div className="w-full bg-[#ECECEC]  mb-12 mt-4 p-4 flex justify-center">
+      <div className="w-full bg-[#f5f5f5]  mb-12 mt-4 p-4 flex justify-center">
         <div className="2-full grid grid-cols-2 md:w-fit 2xl:w-5/12 md:flex md:justify-between">
           {categories.map((categories, index) => (
             <Button
