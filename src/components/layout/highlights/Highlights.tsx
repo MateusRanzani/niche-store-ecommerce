@@ -6,15 +6,18 @@ import { capitalizeFirstLetter } from "@/utils/capitalize-first-letter";
 import { useState } from "react";
 
 export const Highlights = ({ data, categories }) => {
+  //Estado criado para filtrar itens
   let [categoriesAux, setCategoriesAux] = useState(categories);
 
-  const countItemsBySegments = (segment: string) => {
-    const array = data.filter((item) => item.category === segment);
+  //Função para quantificar produtos por categoria
+  const countItemsByCategory = (category: string) => {
+    const array = data.filter((item) => item.category === category);
 
     return array.length;
   };
 
-  const filterBySegment = (categories: string) => {
+  //Função de filtro pela categoria
+  const filterByCategory = (categories: string) => {
     const removeSelected = categoriesAux.filter((item) => item !== categories);
     categoriesAux = [categories, ...removeSelected];
     setCategoriesAux(categoriesAux);
@@ -34,22 +37,23 @@ export const Highlights = ({ data, categories }) => {
             <Button
               variant="ghost"
               key={index}
-              onClick={() => filterBySegment(categories)}
+              onClick={() => filterByCategory(categories)}
             >
               {capitalizeFirstLetter(categories)}
-              <Badge className="ml-2">{countItemsBySegments(categories)}</Badge>
+              <Badge className="ml-2">{countItemsByCategory(categories)}</Badge>
             </Button>
           ))}
         </div>
       </div>
 
+      {/* Listagem de itens por categoria */}
       {categoriesAux.map((category, index) => {
         return (
           <div key={index}>
             <p className="font-bold text-2xl mb-12">
               {capitalizeFirstLetter(category)}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-y-24 gap-x-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4">
               {data.map((item, secondIndex) => {
                 if (item.category === category) {
                   return <Card {...item} key={secondIndex} />;

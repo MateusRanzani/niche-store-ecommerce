@@ -1,6 +1,9 @@
 "use client";
 import { ProductInterface } from "@/interfaces/ProductInterface";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import ReactStars from "react-stars";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,15 +11,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import ReactStars from "react-stars";
 
 export const ProductItem = (product: ProductInterface) => {
   let [quantitySelected, setQuantitySelected] = useState(1);
   let [lineClampView, setLineClampView] = useState(false);
   let [lineClampClass, setLineClampClass] = useState("line-clamp-4");
 
+  //Função para adicionar mais ou menos itens a compra
   const countQItems = () => {
     const items: any[] = [];
 
@@ -35,6 +36,7 @@ export const ProductItem = (product: ProductInterface) => {
     return items;
   };
 
+  //Função para abrir ou fechar descrição do item
   const handleClampLine = () => {
     if (lineClampClass === "line-clamp-4") {
       setLineClampClass("line-clamp-none");
@@ -43,6 +45,8 @@ export const ProductItem = (product: ProductInterface) => {
     }
   };
 
+  //Função no carregamento inicial da página
+  //Ela retorna se a descrição do item excedeu 4 linhas para disponibilizar o botão "Read more"
   useEffect(() => {
     function isStringExceedLineClamp(elementId) {
       const container = document.getElementById(elementId);
@@ -120,7 +124,7 @@ export const ProductItem = (product: ProductInterface) => {
             })}
           </h1>
 
-          <Button className="font-bold  text-base w-fit bg-blue-500 hover:bg-blue-600 text-white hover:text-white w-6/12 py-6 text-2xl">
+          <Button className="font-bold  text-base w-fit bg-blue-500 hover:bg-blue-600 text-white hover:text-white md:w-6/12 py-6 text-2xl w-full">
             Buy Now
           </Button>
         </div>

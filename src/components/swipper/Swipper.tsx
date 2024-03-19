@@ -1,13 +1,13 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper";
-
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Image from "next/image";
 
+//Array criado para imagens do swipper
 const banners = [
   {
     src: "https://drive.google.com/uc?export=view&id=1ijOClNufSQFjs4farTNn6ZV30nc_pMLj",
@@ -43,6 +43,9 @@ const banners = [
   },
 ];
 
+//Componente com temporizador de 5 segundos
+//Renderiza imagens com dimensões diferentes no desktop e mobile
+
 export const Swipper = () => {
   return (
     <Swiper
@@ -50,7 +53,7 @@ export const Swipper = () => {
       loop={true}
       modules={[Pagination, Autoplay]}
       autoplay={{
-        delay: 8000,
+        delay: 5000,
         disableOnInteraction: false,
       }}
       className="mySwiper"

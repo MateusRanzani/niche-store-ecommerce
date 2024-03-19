@@ -9,7 +9,10 @@ import {
   getSingleProduct,
 } from "@/services/get-data";
 
+//Rota dinamica
 export default async function Page({ params }) {
+  //Fetch de dados usando SSR
+  //Todos dados são carregados do lado do servidor
   const product: ProductInterface = await getSingleProduct(params.itemId);
   const data = await getData();
   const categories = await getDataCategories();
@@ -28,6 +31,7 @@ export default async function Page({ params }) {
   );
 }
 
+//Metadata dinamica
 export async function generateMetadata({ params }) {
   const product = await getSingleProduct(params.itemId);
 
